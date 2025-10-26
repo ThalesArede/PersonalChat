@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System;
+using System.Linq;
 
 namespace PersonalAryChat
 {
@@ -30,6 +31,36 @@ namespace PersonalAryChat
 
         private string GerarRespostaDemo(string pergunta)
         {
+            string texto = pergunta.ToLower();
+
+            string[] palavrasImagem = {
+                "imagem", "imagens", "foto", "fotos", "desenho", "desenhos",
+                "ilustração", "ilustrações", "figura", "figuras", "pintura", "pinturas",
+                "cartum", "cartuns", "grafico", "gráfico", "gráficos", "arte", "artes",
+                "visual", "visuais", "render", "renders", "sketch", "sketches",
+                "illustrar", "illustration", "illustrando", "ilustrar", "ilustrando",
+                "fotografia", "fotografias", "clipart", "mockup", "mockups"
+            };
+
+            string[] palavrasAcao = {
+                "crie", "faça", "gere", "produza", "desenhe", "ilustre", "quero", "me faça",
+                "preciso", "criar", "desenhar", "gerar", "produzir", "faça para mim",
+                "me mostre", "pode criar", "quero que você", "faça algo", "faça uma",
+                "crie um", "crie uma", "me desenhe", "me ilustre", "me gere", "fazer",
+                "faça isso", "criar algo", "produza algo", "desenhe algo", "ilustre algo",
+                "faça um desenho", "faça uma ilustração"
+            };
+
+            bool SolicitaImagem(string t)
+            {
+                return palavrasImagem.Any(p => t.Contains(p)) && palavrasAcao.Any(a => t.Contains(a));
+            }
+
+            if (SolicitaImagem(texto))
+            {
+                return "Desculpe, este modelo não gera imagens. Eu posso responder apenas em texto.";
+            }
+
             return "Esta é uma resposta de demonstração do seu assistente local. Em breve, isso será substituído pela resposta da IA real.";
         }
 
@@ -61,7 +92,6 @@ namespace PersonalAryChat
             SalvarHistorico();
             RenderizarMensagem(mensagem, autoScroll: true);
         }
-
 
         private void RenderizarMensagem(Mensagem mensagem, bool autoScroll = false)
         {
@@ -122,7 +152,6 @@ namespace PersonalAryChat
         private void SalvarHistorico()
         {
             Directory.CreateDirectory(pastaDocumentosLocal);
-
             var json = JsonSerializer.Serialize(mensagens);
             File.WriteAllText(CaminhoHistorico, json);
         }
@@ -174,7 +203,6 @@ namespace PersonalAryChat
                     string horario = msg.Horario.ToString("dd/MM HH:mm");
                     linhas.Add($"({horario}) {prefixo}: {msg.Texto}");
                 }
-
 
                 File.WriteAllLines(caminhoExportacao, linhas);
 

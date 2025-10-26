@@ -121,7 +121,6 @@ namespace PersonalAryChat
 
         private void SalvarHistorico()
         {
-            // Garante que a pasta exista
             Directory.CreateDirectory(pastaDocumentosLocal);
 
             var json = JsonSerializer.Serialize(mensagens);

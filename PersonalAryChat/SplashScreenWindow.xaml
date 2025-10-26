@@ -17,12 +17,12 @@
             SnapsToDevicePixels="True">
 
         <Grid>
-            <!-- Imagem de fundo -->
+            <!-- Imagem -->
             <Image Source="pack://application:,,,/Assets/Images/splash.png" 
                    Stretch="Fill" 
                    Opacity="0.9"/>
 
-            <!-- Texto de carregamento -->
+            <!-- Texto -->
             <TextBlock Text="Carregando..."
                        Foreground="White"
                        FontSize="25"

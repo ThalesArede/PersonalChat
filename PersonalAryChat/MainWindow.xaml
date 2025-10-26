@@ -89,7 +89,6 @@
                     BorderBrush="{TemplateBinding BorderBrush}"
                     BorderThickness="{TemplateBinding BorderThickness}"
                     CornerRadius="14">
-                                    <!-- Metade do Width/Height para ficar circular -->
                                     <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                 </Border>
                             </ControlTemplate>
@@ -185,10 +184,8 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
 
-                                <!-- Conteúdo do ScrollViewer -->
                                 <ScrollContentPresenter Margin="{TemplateBinding Padding}"/>
 
-                                <!-- Barra de rolagem vertical -->
                                 <ScrollBar Grid.Column="1"
                                Orientation="Vertical"
                                Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
@@ -201,7 +198,6 @@
                     </ControlTemplate>
                 </ScrollViewer.Template>
 
-                <!-- Conteúdo do chat -->
                 <StackPanel x:Name="ChatPanel" Margin="4"/>
             </ScrollViewer>
 

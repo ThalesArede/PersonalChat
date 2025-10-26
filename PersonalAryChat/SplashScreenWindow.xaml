@@ -1,0 +1,35 @@
+﻿<Window x:Class="PersonalAryChat.SplashScreenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        Width="430" Height="406"
+        ShowInTaskbar="False"
+        Topmost="True"
+        WindowStartupLocation="CenterScreen">
+
+    <Border CornerRadius="25"
+            Background="#1A1A2E"
+            BorderBrush="#333"
+            BorderThickness="2"
+            SnapsToDevicePixels="True">
+
+        <Grid>
+            <!-- Imagem de fundo -->
+            <Image Source="pack://application:,,,/Assets/Images/splash.png" 
+                   Stretch="Fill" 
+                   Opacity="0.9"/>
+
+            <!-- Texto de carregamento -->
+            <TextBlock Text="Carregando..."
+                       Foreground="White"
+                       FontSize="25"
+                       VerticalAlignment="Bottom"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,25"/>
+        </Grid>
+
+    </Border>
+</Window>
